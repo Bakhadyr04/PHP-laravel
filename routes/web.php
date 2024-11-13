@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
+Route::get('/auth/signup', [AuthController::class, 'signup']);
+Route::post('/auth/registr', [AuthController::class, 'registr']);
+
+Route::get('/', [MainController::class, 'index']);
+Route::get('galery/{img}', function($img){
+    return view('main.galery', ['img'=>$img]);
 });
 
 Route::get('/about', function () {
