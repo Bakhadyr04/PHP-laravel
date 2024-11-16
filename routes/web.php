@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
@@ -15,8 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Authenticate
 Route::get('/auth/signup', [AuthController::class, 'signup']);
 Route::post('/auth/registr', [AuthController::class, 'registr']);
+
+//Article
+Route::resource('articles', ArticleController::class);
 
 Route::get('/', [MainController::class, 'index']);
 Route::get('galery/{img}', function($img){
