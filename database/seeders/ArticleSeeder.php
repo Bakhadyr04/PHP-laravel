@@ -16,10 +16,10 @@ class ArticleSeeder extends Seeder
         $articles = json_decode(file_get_contents(public_path().'/articles.json'));
         foreach ($articles as $article) {
             Article::create([
-                'name'=>$article->name,
-                'desc'=>$article->desc,
-                'date'=>$article->date,
-                'user_id'=>random_int(0, 10)
+                'name' => $article->name,
+                'desc' => $article->desc,
+                'date' => $article->date,
+                'user_id' => random_int(1, 10),
             ]);
         }
     }
